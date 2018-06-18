@@ -1,5 +1,5 @@
 import urllib.request, json
-from .models import Sources,Article
+from .models import Sources, Article
 
 # Sources = news.Sources
 Articles = Article
@@ -15,11 +15,12 @@ article_url = None
 
 
 def configure_request(app):
-    global api_key,base_url,article_url
+    global api_key, base_url, article_url
     api_key = app.config['NEWS_API_KEY']
-    print(api_key)
+    # print(api_key)
     base_url = app.config['NEWS_API_BASE_URL']
     article_url = app.config['BASE_URL']
+
 
 def get_sources(category):
     """
@@ -60,6 +61,7 @@ def process_results(sources_list):
 
     return sources_results
 
+
 #
 def get_article(id):
     get_article_url = article_url.format(id, api_key)
@@ -89,6 +91,3 @@ def process_article(article_list):
             article_result = Articles(id, author, title, description, url, image, date)
             article_object.append(article_result)
     return article_object
-
-
-
