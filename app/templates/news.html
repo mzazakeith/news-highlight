@@ -2,9 +2,8 @@
 {% block content%}
     {% for article_row in article %}
 
-
-    <div class="row">
-        <div class="col-md-3">
+<div class="continer-fluid">
+        <div class="col-md-4 panel-default">
                 <a href="{{article_row.url}}">
                     <img src="{{article_row.image}}" alt="{{article_row.title}}" class="img-responsive" styles="height:30px">
                 </a>
@@ -18,6 +17,7 @@
                 </div>
 
     </div>
+</div>
 
     {% endfor %}
 
